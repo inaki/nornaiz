@@ -1,0 +1,12 @@
+{
+  "$schema": "https://aka.ms/azure/static-web-apps-cli/schema",
+  "configurations": {
+    "nornaiz": {
+      "appLocation": ".",
+      "outputLocation": "_site",
+      "appBuildCommand": "npx @11ty/eleventy",
+      "run": "npx @11ty/eleventy --serve",
+      "appDevserverUrl": "http://localhost:8080"
+    }
+  }
+}
