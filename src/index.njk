@@ -1,10 +1,13 @@
+---
+title: whoami
+---
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>whoami</title>
+  <title>{{ title }}</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="h-screen flex justify-center items-center font-hack">
@@ -12,7 +15,7 @@
   <script src="https://unpkg.com/typify.js@1.1.9/dist/typify.min.js"></script>
   <script>
     const typingText = Typify('#typify-text', {
-      text: ["मैं कौन हूँ","Qui suis-je ","kim jestem","Chi sono io","나는 누구인가","Quem sou eu","Wie ben ik","私は誰？","Quién soy","من أنا؟","Кто я","Ben kimim","Ποιος είμαι εγώ;","আমি কে","Vem är jag","Kuka minä olen","我是谁","Hvem er jeg","Kdo jsem","Ki vagyok én","Kim jestem","Tôi là ai","Siapa saya","ฉันคือใคร","Cine sunt eu","Wer bin ich","Mimi ni nani","Ngubani mina","Siapa saya"],
+      text: {{ site.whoami | dump | safe }},
       delay: 100,
       loop: true,
       cursor: true,
