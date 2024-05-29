@@ -1,22 +1,62 @@
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Rad Blog</title>
-  </head>
-  <body>
-    
-<main class="container flex flex-col flex-wrap items-center px-6 pt-24 mx-auto md:flex-row md:pt-48">
-  <header class="flex flex-col justify-center w-full overflow-y-hidden lg:items-start xl:w-2/5">
-    <h1 class="my-4 text-3xl font-bold leading-tight text-center text-blue-500 md:text-left md:text-5xl">
-      <span class="sr-only">Error</span>404 🤷
-    </h1>
-    <p class="mb-6 text-base leading-normal text-center md:text-left md:text-2xl">Sorry, we couldn't find this page.</p>
-    <a rel="noopener noreferrer" href="/" class="px-8 py-3 font-semibold text-white bg-blue-500 rounded">Back to homepage</a>
-  </header>
-</main>
+<!DOCTYPE html>
+<html lang="en" class="dark"> <!-- Add the dark class here for testing -->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>whoami</title>
+  <link rel="stylesheet" href="/main.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Hack', monospace;
+    }
+  </style>
+</head>
+<body class="h-screen flex flex-col justify-center items-center bg-white dark:bg-gray-900 text-black dark:text-white">
+  <h1 id="typify-text" class="text-2xl md:text-4xl lg:text-6xl"></h1>
+  <img id="dark-mode-toggle" src="/assets/icons/dark-switch.png" alt="Toggle Dark Mode" class="absolute top-4 right-4 cursor-pointer">
 
-  </body>
+  <script src="https://unpkg.com/typify.js@1.1.9/dist/typify.min.js"></script>
+  <script>
+    const typingText = Typify('#typify-text', {
+      text: ["मैं कौन हूँ","Qui suis-je ","kim jestem","Chi sono io","나는 누구인가","Quem sou eu","Wie ben ik","私は誰？","Quién soy","من أنا؟","Кто я","Ben kimim","Ποιος είμαι εγώ;","আমি কে","Vem är jag","Kuka minä olen","我是谁","Hvem er jeg","Kdo jsem","Ki vagyok én","Kim jestem","Tôi là ai","Siapa saya","ฉันคือใคร","Cine sunt eu","Wer bin ich","Mimi ni nani","Ngubani mina","Siapa saya"],
+      delay: 100,
+      loop: true,
+      cursor: true,
+      stringDelay: 1000
+    });
+
+        // Function to update the icon based on theme
+    function updateIcon() {
+      const toggleIcon = document.getElementById('dark-mode-toggle');
+      if (document.documentElement.classList.contains('dark')) {
+        toggleIcon.classList.remove('fa-moon');
+        toggleIcon.classList.add('fa-sun');
+      } else {
+        toggleIcon.classList.remove('fa-sun');
+        toggleIcon.classList.add('fa-moon');
+      }
+    }
+
+    // Add event listener to the icon to toggle dark mode
+    document.getElementById('dark-mode-toggle').addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+      // Optionally save the preference to localStorage
+      const isDarkMode = document.documentElement.classList.contains('dark');
+      localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+      updateIcon();
+    });
+
+    // Check localStorage for saved preference and apply it
+    const currentTheme = localStorage.getItem('theme');
+    if (currentTheme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else if (currentTheme === 'light') {
+      document.documentElement.classList.remove('dark');
+    }
+    // Initial icon update
+    updateIcon();
+  </script>
+</body>
 </html>
