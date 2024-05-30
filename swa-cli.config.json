@@ -8,5 +8,8 @@
       "run": "npx @11ty/eleventy --serve",
       "appDevserverUrl": "http://localhost:8080"
     }
+  },
+  "platform": {
+    "apiRuntime": "node:20"
   }
 }
